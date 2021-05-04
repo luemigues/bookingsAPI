@@ -14,5 +14,7 @@ patientRouter.put('/:id', PatientController.updatePatientById);
 //create a patient
 patientRouter.post('/', PatientController.createNewPatient);
 
+//delete a patient
+patientRouter.delete('/:id', PatientController.deletePatientById);
 
 module.exports = patientRouter;

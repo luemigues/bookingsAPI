@@ -85,4 +85,22 @@ module.exports = class PatientController {
             console.log(error)
         }
     }
+
+    static deletePatientById(req, res){
+
+        try{
+            const id = parseInt(req.params.id);
+
+            const patient = patientRespository.deletePatientbyId(id)
+
+            if(patient){
+                res.status(204).json(patient)
+            }else{
+                res.status(400).send('Patient could not be deleted')
+            }
+
+            }catch(error){
+            console.log(error)
+        }
+    }
 }

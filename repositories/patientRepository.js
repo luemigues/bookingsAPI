@@ -18,7 +18,7 @@ module.exports = class PatientController {
 
         let selectedPatient = patientsDB.find( patient => patient.id === id)
         return selectedPatient;
-        
+
     }
 
     
@@ -59,5 +59,16 @@ module.exports = class PatientController {
 
         return patient;
     
+    }
+
+
+    static deletePatientbyId(id){
+
+        let patientIndex = patientsDB.findIndex( patient => patient.id === id)
+        let removedPatient = patientsDB[patientIndex];
+
+        patientsDB.splice(patientIndex, 1);
+        console.log(removedPatient)
+        return removedPatient;
     }
 }
