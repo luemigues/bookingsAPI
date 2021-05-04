@@ -16,15 +16,9 @@ module.exports = class PatientController {
 
     static getPatientById(id){
 
-        let selectedPatient;
-
-        for(let patient of patientsDB){
-            if(patient.id === id){
-                selectedPatient = patient;
-            }
-        }
-
+        let selectedPatient = patientsDB.find( patient => patient.id === id)
         return selectedPatient;
+        
     }
 
     
@@ -46,8 +40,6 @@ module.exports = class PatientController {
         }else{
             return null
         }
-        
-        return selectedPatient;
     }
     
     static createNewPatient(newPatient){
